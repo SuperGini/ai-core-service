@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: ai-core-service2
+  ai:
+    openai:
+      api-key: fake_key
+      chat:
+        base-url: http://localhost:11434
+        options:
+          model: gemma3:12b
+          max-tokens: 300000
+          temperature: 0.5
+
