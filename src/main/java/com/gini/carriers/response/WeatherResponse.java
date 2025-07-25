@@ -1,11 +1,13 @@
 package com.gini.carriers.response;
 
 public record WeatherResponse(
+        String errorResponse,
         String latitude,
         String longitude,
         int elevation,
         String units,
         LocationResponse current
+
 
 ) {
 
