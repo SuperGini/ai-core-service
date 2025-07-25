@@ -4,13 +4,29 @@ spring:
   ai:
     openai:
       api-key: fake_key
-#      chat:
+    chat:
+      memory:
+        repository:
+          jdbc:
+           #  it initializes the cht memory table only when using spring-data-JPA. Is not working when on the class path is just spring-jdbc dependency.
+            initialize-schema: always
+            schema: classpath:org/springframework/ai/chat/memory/repository/jdbc/schema-postgresql.sql #where we can find the schema for chat memory for postgresql
+
+  #      chat:
 #        base-url: http://localhost:11434
 #        options:
 #          model: gemma3:12b
 #          max-tokens: 300000
 #          temperature: 0.5
-
+  datasource:
+    url: jdbc:postgresql://localhost:5432/aidatabase
+    username: ginitoru
+    password: 1234
 
 weather:
   key:
+
+logging:
+  level:
+    org.springframework.jdbc.core.JdbcTemplate: TRACE
+    org.springframework.jdbc.core.StatementCreatorUtils: TRACE

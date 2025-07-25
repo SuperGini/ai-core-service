@@ -3,6 +3,7 @@ package com.gini.controller;
 import com.gini.carriers.request.QuestionRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.util.MimeTypeUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,11 +39,11 @@ public class TestController {
     }
 
     @GetMapping("/question2")
-    public String getResponse2(@RequestBody QuestionRequest questionRequest) {
+    public String getResponse2(@RequestBody QuestionRequest questionRequest, @RequestParam String conversationId) {
 
         var response = chatClient.prompt()
-                .user(u -> u.text(questionRequest.message())
-                )
+                .user(u -> u.text(questionRequest.message()))
+                .advisors(adv -> adv.param(ChatMemory.CONVERSATION_ID, conversationId))
                 .call()
                 .content();
         return response;
