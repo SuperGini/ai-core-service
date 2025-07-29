@@ -1,9 +1,21 @@
 spring:
   application:
     name: ai-core-service2
+  datasource:
+    url: jdbc:postgresql://localhost:5432/vectordb
+    username: ginitoru
+    password: 1234
   ai:
     openai:
-      api-key: fake_key
+      api-key: fake_key  ----> see AiConfig.java for configuration
+#      embedding:
+#        base-url:
+    vectorstore:
+      pgvector:
+        index-type: hnsw
+        distance-type: cosine_distance
+        dimensions: 3072
+        max-document-batch-size: 10000
     chat:
       memory:
         repository:
@@ -18,10 +30,7 @@ spring:
 #          model: gemma3:12b
 #          max-tokens: 300000
 #          temperature: 0.5
-  datasource:
-    url: jdbc:postgresql://localhost:5432/aidatabase
-    username: ginitoru
-    password: 1234
+
 
 weather:
   key:

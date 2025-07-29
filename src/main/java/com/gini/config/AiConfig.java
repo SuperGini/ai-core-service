@@ -76,7 +76,6 @@ public class AiConfig {
      * See: TestController -> @GetMapping("/question2")
      * How it Works: for every conversationId the app does a call to the database, takes all the content for that conversationId
      * and sends it to the LLM. The content we have the more tokens we consume
-     *
      */
 
     @Bean
