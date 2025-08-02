@@ -9,10 +9,8 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class RagService {
 
-
     private final ChatClient chatClient;
     private final RagRepository ragRepository;
-
 
     public String getInfo(String question) {
 
@@ -40,6 +38,5 @@ public class RagService {
     public void loadPDFs() {
         ragRepository.loadPDFs();
     }
-
 
 }
