@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --white: var(--p-zinc-50);
+    --blue: var(--p-blue-500);
+    --border-color: var(--p-slate-300);
+    --grey-hover-color: var(--p-slate-200);
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--p-zinc-50);
+}
+
+
