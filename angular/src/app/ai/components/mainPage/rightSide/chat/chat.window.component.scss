@@ -1,14 +1,14 @@
 .chat-container {
-    background: red;
+    //background: red;
     display: flex;
     flex-direction: column;
     height: 100%;
 }
 
-.blank-space{
+.blank-space {
     height: 4rem;
     width: 100%;
-    background: blue;
+    //background: blue;
     border-bottom: 2px solid var(--border-color);
 }
 
@@ -20,7 +20,7 @@
 }
 
 .chat-text {
-    background: green;
+    //background: green;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -33,18 +33,22 @@
 .chat-display {
     height: 100%;
     background: var(--white);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
 
+p {
+    color: var(--p-gray-800);
 }
 
 .message {
     padding: 1rem;
+    padding-top: 5rem;
 }
 
 p-iconfield {
     width: 100%;
-    background: blueviolet;
-
-
 }
 
 input {
@@ -61,9 +65,37 @@ input {
 }
 
 p-inputicon {
-
     color: var(--p-gray-800);
-    //font-size: 0.8rem;
-    //border-radius: 30%;
-    //padding: 0.5rem;
+}
+
+.user-text {
+    background: var(--p-green-600);
+    color: var(--white);
+    padding: 0.75rem;
+    border: 0.8rem solid var(--white);
+    text-align: right;
+    max-width: 60%;
+    align-self: end;
+    border-radius: 1.2rem;
+    margin-right: 1rem;
+}
+
+.ai-text {
+    background: var(--grey-hover-color);
+    color: var(--p-gray-800);
+    padding: 0.75rem;
+    border-top: 0.2rem solid var(--white);
+    max-width: 70%;
+    align-self: start;
+    border-radius: 0.5rem;
+    margin-left: 1rem;
+}
+
+.spinner {
+    display: flex;
+    align-self: start;
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }

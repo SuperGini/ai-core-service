@@ -1,0 +1,4 @@
+interface UserRequest {
+    message: string
+
+}

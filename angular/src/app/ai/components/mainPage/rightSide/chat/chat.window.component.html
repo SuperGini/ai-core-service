@@ -2,12 +2,34 @@
     <div class="blank-space"></div>
     <div class="chat-container-inner">
         <div class="chat-text">
-            <div class="chat-display"></div>
+            <div class="chat-display">
+                @for (message of messages(); track message.message) {
+                    @if (message.chatType === ChatType.USER) {
+                        <p class="user-text" [innerHTML]="message.message | newlineToBr"></p>
+                    }
+
+                    @if (message.chatType === ChatType.AI) {
+                        <p class="ai-text" [innerHTML]="message.message | newlineToBr"></p>
+                    }
+                }
+
+                @if (isThinking) {
+                    <div class="spinner">
+                        <p-progress-spinner strokeWidth="3" fill="transparent" animationDuration="1.5s"
+                                            [style]="{ width: '30px', height: '30px' }"/>
+                        <p>Thinking....</p>
+                    </div>
+                }
+            </div>
             <div class="message">
                 <p-iconfield>
-                    <input type="text" pInputText placeholder="Type new message"/>
+                    <input
+                        type="text"
+                        pInputText
+                        placeholder="Type new message"
+                        [(ngModel)]="question"
+                        (keyup.enter)="sendQuestion()"/>
                     <p-inputicon class="pi pi-arrow-right"/>
-                    <!--                <i class="pi pi-arrow-right"></i>-->
                 </p-iconfield>
             </div>
 
