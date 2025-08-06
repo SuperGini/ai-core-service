@@ -1,0 +1,81 @@
+.upload-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+
+.card {
+    width: 40rem;
+
+}
+
+.yyy {
+    height: 7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.fff {
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.ggg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    width: 100px;
+    color: black;
+
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.xxx {
+    border: 2px solid var(--p-rose-300);
+    display: flex;
+    align-self: center;
+    font-size: 2rem;
+    padding: 1rem;
+    border-radius: 50%;
+    color: var(--p-gray-300);
+}
+
+
+.text {
+    padding: 0.5rem;
+    color: var(--p-gray-700);
+}
+
+
+.flex {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+
+.bar {
+    background-color: var(--p-gray-300);
+    height: 0.5rem;
+}
+

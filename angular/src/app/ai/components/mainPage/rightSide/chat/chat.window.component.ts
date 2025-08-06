@@ -34,8 +34,6 @@ export class ChatWindowComponent {
         this.isThinking = true;
         this.ragService.getAiResponse(this.question)
             .subscribe(response => {
-
-                console.log(response);
                 this.addToMessageArray(response.message, ChatType.AI);
                 this.isThinking = false;
             })
