@@ -1,8 +1,8 @@
 <div class="upload-container">
     <div class="card">
         <p-toast/>
-        <p-fileupload name="myfile[]" url="https://www.primefaces.org/cdn/api/upload.php" [multiple]="false"
-                      accept="image/*, *.pdf" maxFileSize="1000000" (onUpload)="onTemplatedUpload()"
+        <p-fileupload #fileUploader name="myfile[]" [customUpload]="true" [multiple]="false" (uploadHandler)="myUploader($event)"
+                      (onUpload)="onTemplatedUpload()"
                       (onSelect)="onSelectedFiles($event)"
                       [style]="{'height': '30rem', 'background': 'var(--p-stone-50)'}"
         >

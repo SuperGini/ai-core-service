@@ -20,5 +20,13 @@ export class RagService {
             .post<AiResponse>('http://localhost:8080/rag', questionRequest);
     }
 
+    loadPdf(files: File[]) {
+        const formData = new FormData();
+        formData.append(`file`, files[0])
+
+        return this.httpClient.post('http://localhost:8080/load2', formData);
+
+    }
+
 
 }

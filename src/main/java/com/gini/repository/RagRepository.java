@@ -9,6 +9,7 @@ import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.stream.Collectors;
 
@@ -49,7 +50,16 @@ public class RagRepository {
         return searchResponse;
     }
 
+    public void loadPDFs2(MultipartFile file) {
 
+        var documents = new TikaDocumentReader(file.getResource())
+                .read();
+
+        var splitDocuments = new TokenTextSplitter()
+                .apply(documents);
+
+        vectorStore.add(splitDocuments);
+    }
 
 
 }

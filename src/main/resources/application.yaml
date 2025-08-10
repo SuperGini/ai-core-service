@@ -25,6 +25,10 @@ spring:
             schema: classpath:org/springframework/ai/chat/memory/repository/jdbc/schema-postgresql.sql #where we can find the schema for chat memory for postgresql
 
   #      chat:
+  servlet:
+    multipart:
+      max-file-size: 30MB
+      max-request-size: 30MB
 #        base-url: http://localhost:11434
 #        options:
 #          model: gemma3:12b

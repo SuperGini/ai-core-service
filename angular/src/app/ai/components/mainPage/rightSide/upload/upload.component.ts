@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, inject, viewChild} from '@angular/core';
 import {FileUpload, FileUploadEvent, FileUploadHandlerEvent} from 'primeng/fileupload';
 import {MessageService} from 'primeng/api';
 import {Button} from 'primeng/button';
@@ -6,6 +6,7 @@ import {ProgressBar} from 'primeng/progressbar';
 import {Toast} from 'primeng/toast';
 import {Badge} from 'primeng/badge';
 import {PrimeNG} from 'primeng/config';
+import {RagService} from '../../../../services/ragService';
 
 @Component({
     selector: 'upload-component',
@@ -24,6 +25,10 @@ export class UploadComponent {
     files = [];
     totalSize: number = 0;
     totalSizePercent: number = 0;
+
+    protected ragService = inject(RagService);
+
+    protected fileUploader = viewChild<FileUpload>('fileUploader');
 
     constructor(private config: PrimeNG, private messageService: MessageService) {
     }
@@ -81,8 +86,17 @@ export class UploadComponent {
     }
 
     myUploader($event: FileUploadHandlerEvent) {
-        console.log($event.files.pop());
+        // console.log($event.files.pop());
         console.log($event);
+
+        this.ragService.loadPdf($event.files)
+            .subscribe(() => {
+                console.log("File sent!!!");
+                this.fileUploader().clear();
+                this.totalSize = 0;
+                this.totalSizePercent = 0;
+            });
+
 
     }
 

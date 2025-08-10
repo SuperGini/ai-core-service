@@ -4,6 +4,7 @@ import com.gini.repository.RagRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 @RequiredArgsConstructor
@@ -37,6 +38,10 @@ public class RagService {
 
     public void loadPDFs() {
         ragRepository.loadPDFs();
+    }
+
+    public void loadPDFs2(MultipartFile file) {
+        ragRepository.loadPDFs2(file);
     }
 
 }
