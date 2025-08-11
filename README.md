@@ -16,7 +16,7 @@ Using OpenAi API with Ollama and PG-vector database.
 ### UI
 
 
-* ![ex1.png](ui/ex1.png)
-* ![ex2.png](ui/ex2.png)
+![ex1.png](ui/ex1.png)
+![ex2.png](ui/ex2.png)
 
 
